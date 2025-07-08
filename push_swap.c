@@ -6,11 +6,14 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/07/08 11:20:26 by timurray         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:22:28 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+
 
 int main (int ac, char **av)
 {
