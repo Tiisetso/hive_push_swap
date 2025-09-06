@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/07/08 11:22:28 by timurray         ###   ########.fr       */
+/*   Created: 2025/04/14 15:40:40 by timurray          #+#    #+#             */
+/*   Updated: 2025/08/18 14:48:16 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../libft.h"
 
-
-
-
-int main (int ac, char **av)
+int	ft_isalpha(int c)
 {
-	if (ac == 1)
-	{
-
-	} 
-	else
-	{
-		
-	}
-
-	return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

@@ -6,31 +6,52 @@
 #    By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 10:38:01 by timurray          #+#    #+#              #
-#    Updated: 2025/07/08 11:35:49 by timurray         ###   ########.fr        #
+#    Updated: 2025/09/06 19:21:22 by timurray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
 
-SOURCES =
+SOURCES = \
+src/push_swap.c src/error.c
 
 OBJECTS = $(SOURCES:.c=.o)
 
-$(NAME): $(OBJECTS)
-	ar rcs $(NAME) $(OBJECTS)
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I libft/
+VFLAGS = -g
+SFLAGS = -ggdb3 -fsanitize=address -fsanitize=leak -fsanitize=undefined
 
-all: $(NAME)
+LIBFT_DIR  = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a 
+
+debug ?= 0
+
+ifeq (${debug}, 1)
+	CFLAGS := ${CFLAGS} ${VFLAGS}
+endif
+ifeq (${debug}, 2)
+	CFLAGS := ${CFLAGS} ${SFLAGS}
+endif
+
+$(NAME): $(LIBFT) $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) -o $(NAME)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+all: $(NAME)
+
 clean:
 	rm -f $(OBJECTS)
+	make clean -C $(LIBFT_DIR)
 
 fclean: clean
 	rm -f $(NAME)
+	make fclean -C $(LIBFT_DIR)
 
 re: fclean all
 
