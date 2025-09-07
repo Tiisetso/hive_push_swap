@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/06 19:18:33 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/06 20:40:18 by timurray         ###   ########.fr       */
+/*   Created: 2025/09/07 21:48:47 by timurray          #+#    #+#             */
+/*   Updated: 2025/09/07 21:50:34 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../libft.h"
 
-void error_and_exit(void)
+void ft_free_split(char **arr)
 {
-	ft_putendl_fd("Error", 2);
-	exit(1);
-}
+	int i;
 
-// int error_and_return(void)
-// {
-// 	ft_putendl_fd("Error", 2);
-// 	return (EXIT_FAILURE);
-// }
+	i = 0;
+	if(!arr)
+		return ;
+	while(arr[i])
+		free(arr[i++]);
+	free(arr);
+}

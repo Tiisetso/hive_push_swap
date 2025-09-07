@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:35:15 by timurray          #+#    #+#             */
-/*   Updated: 2025/08/19 17:21:33 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/07 21:50:29 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+void	ft_free_split(char **arr);
 
 #endif
