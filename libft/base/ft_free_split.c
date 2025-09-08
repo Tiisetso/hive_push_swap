@@ -12,14 +12,14 @@
 
 #include "../libft.h"
 
-void ft_free_split(char **arr)
+void	ft_free_split(char **arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(!arr)
+	if (!arr)
 		return ;
-	while(arr[i])
+	while (arr[i])
 		free(arr[i++]);
 	free(arr);
 }

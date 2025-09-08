@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/07 22:19:19 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 09:48:18 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int check_nums(char **av, int i)
 			return (0);
 		if(!check_overflow(av[i]))
 			return (0);
-		// ft_printf("num: %i\n", (int)ft_atol(av[i])); //TODO: Remove
 		i++;
 	}
 	return (1);
@@ -96,29 +95,35 @@ int main (int ac, char **av)
 }
 
 /* 
+Tasklist
+TODO: load vec library
+
+TODO: Process arguments. First argument is top of stack.
+TODO: load stacks
+TODO: sort temp stack, bubble?
+
 TODO: check for duplicates.
 TODO: check for sorted list
 
-TODO: character list params?
-TODO: Process arguments. First argument is top of stack.
+TODO: Normalising, ie index as values. 
 
-
-TODO: algs for 3 , 5.
-
-TODO: sort temp stack, bubble?
-TODO: Sort and switch to index as values. 
+TODO: Count bits
+TODO: Find min, find max
+TODO: Find a way to get max bits.
 
 TODO: push_swap functions
 
-TODO: Find a way to get max bits.
+TODO: algs for 2, 3 , 5.
+TODO: push_swap 1?
+
 TODO: Radix with pb, ra, pa.
 
 TODO: 
 */
+
 /* 
 3num 3op
 5num 12op
 100num 700op
 500num 5000op
-
 */

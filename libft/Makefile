@@ -6,7 +6,7 @@
 #    By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 16:30:13 by timurray          #+#    #+#              #
-#    Updated: 2025/09/07 21:51:10 by timurray         ###   ########.fr        #
+#    Updated: 2025/09/08 10:33:53 by timurray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = \
 	get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
 	printf/ft_printf.c printf/ft_printf_char_utils.c \
 	printf/ft_printf_num_utils.c \
+	vector/allocation.c vector/operations.c \
 
 OBJS = $(SRCS:.c=.o)
 
