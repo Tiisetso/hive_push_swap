@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:38:48 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/07 21:07:10 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 10:41:52 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 # include "../libft/libft.h"
 # include <limits.h>
 
-void error_and_exit(void);
+void	error_and_exit(void);
 
 #endif
