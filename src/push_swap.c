@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 19:04:13 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:59:59 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void print_vec_int(t_vec *v) //TODO: remove
 		ft_printf("[%i] %i\n",(int)i, *num);
 		i++;
 	}
+	ft_putendl_fd("", 1);
 }
 
 int check_overflow(const char *s)
@@ -275,33 +276,50 @@ int main(int ac, char **av)
 	input_check(ac, av, &v, &a_stack);
 	sort_vec(&v);
 	list_check(&v, &a_stack);
+	// num_rank(&v, &a_stack); TODO: Reenable
 
-	num_rank(&v, &a_stack);
-
-	print_vec_int(&v); //TODO: remove
-	ft_putendl_fd("", 2);
+	// print_vec_int(&v); //TODO: remove
+	// ft_putendl_fd("", 2);
 	print_vec_int(&a_stack); //TODO: remove
 	
 
-	ft_printf("max rank(i.e. value): %d\n", a_stack.len - 1);
-	ft_printf("max bits: %d", get_max_bits(&a_stack));
+	// ft_printf("max rank(i.e. value): %d\n", a_stack.len - 1);
+	// ft_printf("max bits: %d", get_max_bits(&a_stack));
 
+	t_vec b_stack;
+	ft_vec_new(&b_stack, 0, sizeof(int));
+
+	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
+	
+	ft_pb(&b_stack, &a_stack);
+	ft_pb(&b_stack, &a_stack);
+	ft_pb(&b_stack, &a_stack);
+	
+	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
+
+	ft_vec_free(&b_stack);
 	ft_vec_free(&v);
 	ft_vec_free(&a_stack);
 	return (0);
 }
 
 
-
 /* 
 Tasklist
 TODO: push_swap functions
+TODO: ra
+TODO: rra
+TODO: sa
+
+TODO: return value/error checking swap functions?
+
+TODO:ss, rrr
 
 TODO: algs for 2, 3, 5. 4?
 
 TODO: Radix with pb, ra, pa.
-
-TODO: 
 */
 
 /* 

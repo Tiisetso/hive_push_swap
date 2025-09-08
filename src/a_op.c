@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   a_op.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/08 10:38:48 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 20:52:39 by timurray         ###   ########.fr       */
+/*   Created: 2025/09/08 19:38:18 by timurray          #+#    #+#             */
+/*   Updated: 2025/09/08 20:56:45 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../include/push_swap.h"
 
-# include "../libft/libft.h"
-# include <limits.h>
+void ft_pa(t_vec *a_stack, t_vec *b_stack)
+{
+	int *element;
 
-void	error_and_exit(void);
-
-void ft_pb(t_vec *b_stack, t_vec *a_stack);
-void ft_pa(t_vec *a_stack, t_vec *b_stack);
-
-#endif
+	ft_vec_pop_front(&element, b_stack);
+	ft_vec_push_front(a_stack, &element);
+	ft_putendl_fd("pa", 1);
+}

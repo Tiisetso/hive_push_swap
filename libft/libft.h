@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:35:15 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 10:36:40 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 20:20:36 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int					ft_vec_pop(void *dst, t_vec *src);
 void				*ft_vec_get(t_vec *src, size_t index);
 int					ft_vec_from(t_vec *dst, void *src, size_t len,
 						size_t elem_size);
-
+int					ft_vec_push_front(t_vec *dst, void *src);
+int					ft_vec_pop_front(void *dst, t_vec *src);
 #endif
