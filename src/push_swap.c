@@ -6,20 +6,25 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 14:03:17 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 14:33:46 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//TODO: remove
-#include <stdio.h>
-void print_vec_int(const t_vec *v)
+
+void print_vec_int(t_vec *v) //TODO: remove
 {
-    for (size_t i = 0; i < v->len; i++) {
-        int val = *(int*)(v->memory + i * v->elem_size);
-        printf("[%zu] %d\n", i, val);
-    }
+	size_t i;
+	int *num;
+
+	i = 0;
+	while(i < v->len)
+	{
+		num = ft_vec_get(v, i);
+		ft_printf("%i: %i\n",(int)i,*num);
+		i++;
+	}
 }
 
 int check_overflow(const char *s)
@@ -37,6 +42,8 @@ int is_number(const char *s)
     int i;
 
 	i = 0;
+    if (!s || !s[0])
+        return (0);
     if (s[i] == '+' || s[i] == '-')
         i++;
     if (!s[i])
@@ -137,6 +144,33 @@ void duplicate_check(t_vec *v)
 	}
 }
 
+void unsorted_check(t_vec *v)
+{
+	size_t i;
+	int *a;
+	int *b;
+	int unsorted;
+
+	unsorted = 0;
+	i = 0;
+	while(i < v->len -1)
+	{
+		a = ft_vec_get(v, i);
+		b = ft_vec_get(v, i + 1);
+		if (*a > *b)
+		{
+			unsorted = 1;
+			break;
+		}
+		i++;
+	}
+	if(!unsorted)
+	{
+		ft_vec_free(v);
+		exit(1);
+	}
+}
+
 int main(int ac, char **av)
 {
 	t_vec v;
@@ -161,6 +195,7 @@ int main(int ac, char **av)
 			error_and_exit();
 		}
 	}
+	unsorted_check(&v);
 	sort_vec(&v);
 	print_vec_int(&v);
 	duplicate_check(&v);
@@ -170,10 +205,6 @@ int main(int ac, char **av)
 
 /* 
 Tasklist
-TODO: check for sorted list
-
-TODO: ./push_swap 1 2 3 4 \0
-
 TODO: Normalising, ie index as values. 
 
 TODO: Count bits
