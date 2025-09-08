@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:38:48 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 20:52:39 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 22:33:25 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,14 @@
 
 void	error_and_exit(void);
 
-void ft_pb(t_vec *b_stack, t_vec *a_stack);
 void ft_pa(t_vec *a_stack, t_vec *b_stack);
+void ft_pb(t_vec *a_stack, t_vec *b_stack);
+
+void ft_rb(t_vec *b_stack);
+void ft_ra(t_vec *a_stack);
+
+void ft_rra(t_vec *a_stack);
+void ft_rrb(t_vec *b_stack);
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:14:06 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 20:17:57 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/08 22:12:22 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ int	ft_vec_push_front(t_vec *dst, void *src)
 	}
 	if (dst->len > 0)
 	{
-		ft_memmove(dst->memory + dst->elem_size, dst->memory, dst->len
-			* dst->elem_size);
+		ft_memmove(dst->memory + dst->elem_size, dst->memory, dst->len* dst->elem_size);
 	}
 	ft_memcpy(dst->memory, src, dst->elem_size);
 	dst->len += 1;

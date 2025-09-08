@@ -1,40 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   a_op.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 19:38:18 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 22:09:30 by timurray         ###   ########.fr       */
+/*   Created: 2025/09/08 22:34:46 by timurray          #+#    #+#             */
+/*   Updated: 2025/09/08 22:39:57 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void ft_pa(t_vec *a_stack, t_vec *b_stack)
+void radix_sort(t_vec *a_stack, t_vec *b_stack)
 {
-	int *element;
-
-	ft_vec_pop_front(&element, a_stack);
-	ft_vec_push_front(b_stack, &element);
-	ft_putendl_fd("pa", 1);
-}
-
-void ft_ra(t_vec *a_stack)
-{
-	int *elem;
-
-	ft_vec_pop_front(&elem, a_stack);
-	ft_vec_push(a_stack, &elem);
-	ft_putendl_fd("ra", 1);
-}
-
-void ft_rra(t_vec *a_stack)
-{
-	int *elem;
-
-	ft_vec_pop(&elem, a_stack);
-	ft_vec_push_front(a_stack, &elem);
-	ft_putendl_fd("rra", 1);
+	
 }
