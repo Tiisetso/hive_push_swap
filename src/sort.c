@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 22:34:46 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 15:19:13 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 16:41:36 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,59 @@ void radix_sort(t_vec *a_stack, t_vec *b_stack)
 		i++;
 	}
 }
+
+void sort_2(t_vec *a_stack)
+{
+	ft_ra(a_stack);
+}
+
+void sort_3(t_vec *a_stack)
+{
+	unsigned int *num_1;
+	unsigned int *num_2;
+
+	num_1 = ft_vec_get(a_stack, 0);
+	num_2 = ft_vec_get(a_stack, 1);
+	if ((*num_1 == 2) && (*num_2 ==  1))
+	{
+		ft_ra(a_stack);
+		ft_sa(a_stack);
+	}
+	else if ((*num_1 == 2) && (*num_2 == 0))
+		ft_ra(a_stack);
+	else if ((*num_1 == 1) && (*num_2 == 0))
+		ft_sa(a_stack);
+	else if ((*num_1 == 1) && (*num_2 == 2))
+		ft_rra(a_stack);
+	else
+	{
+		ft_sa(a_stack);
+		ft_ra(a_stack);
+	}
+}
+/* 
+1
+2
+3
+
+3 2 1 
+2 1 2
+1 3 3
+
+3 1
+1 2
+2 3
+
+2 1
+1 2
+3 3
+
+2 1
+3 2	
+1 3
+
+1 3 1
+3 1 2
+2 2 3
+
+*/

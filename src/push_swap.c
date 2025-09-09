@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 15:25:20 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 16:41:13 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,73 +249,76 @@ int main(int ac, char **av)
 	input_check(ac, av, &v, &a_stack);
 	sort_vec(&v);
 	list_check(&v, &a_stack);
+	num_rank(&v, &a_stack);
+	ft_vec_free(&v);
 
-	num_rank(&v, &a_stack);// TODO: Reenable
 
 	t_vec b_stack;
 	ft_vec_new(&b_stack, 0, sizeof(int));
 
-
-	radix_sort(&a_stack, &b_stack);
-
+	if(a_stack.len == 2)
+		sort_2(&a_stack);
+	else if(a_stack.len == 3)
+		sort_3(&a_stack);
+	else
+		radix_sort(&a_stack, &b_stack);
 
 	ft_vec_free(&b_stack);
-	ft_vec_free(&v);
 	ft_vec_free(&a_stack);
 	return (0);
 }
 
-
 /* 
 Tasklist
-TODO: algs for 2, 3, 5. 4?
+TODO: 2 nums
+TODO: 3 nums
+TODO: 5 nums
+TODO: 4 nums
 
-
-TODO: push_swap functions
-TODO:ss, rrr
-TODO: sa
+TODO:ss, rr, rrr
 
 TODO: return value/error checking swap functions?
 */
 
 /* 
 Performance criteria
-3num 3op
-5num 12op
-100num 700op
-500num 5000op
+3num	3op
+5num	12op
 */
 
-	//example ops check
-/* 	print_vec_int(&a_stack);
-	print_vec_int(&b_stack);
-	
-	ft_sa(&a_stack);
-	print_vec_int(&a_stack);
-	print_vec_int(&b_stack);
-	
-	ft_pb(&b_stack, &a_stack);
-	ft_pb(&b_stack, &a_stack);
-	ft_pb(&b_stack, &a_stack);
-	print_vec_int(&a_stack);
-	print_vec_int(&b_stack);
 
-	ft_ra(&a_stack);
-	ft_rb(&b_stack);
-	print_vec_int(&a_stack);
-	print_vec_int(&b_stack);
+/* 	
+//example ops check
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
 
-	ft_rra(&a_stack);
-	ft_rrb(&b_stack);
-	print_vec_int(&a_stack);
-	print_vec_int(&b_stack);
-	
-	ft_sa(&a_stack);
-	print_vec_int(&a_stack);
-	print_vec_int(&b_stack);
-	
-	ft_pa(&a_stack, &b_stack);
-	ft_pa(&a_stack, &b_stack);
-	ft_pa(&a_stack, &b_stack);
-	print_vec_int(&a_stack);
-	print_vec_int(&b_stack); */
+ft_sa(&a_stack);
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
+
+ft_pb(&b_stack, &a_stack);
+ft_pb(&b_stack, &a_stack);
+ft_pb(&b_stack, &a_stack);
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
+
+ft_ra(&a_stack);
+ft_rb(&b_stack);
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
+
+ft_rra(&a_stack);
+ft_rrb(&b_stack);
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
+
+ft_sa(&a_stack);
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
+
+ft_pa(&a_stack, &b_stack);
+ft_pa(&a_stack, &b_stack);
+ft_pa(&a_stack, &b_stack);
+print_vec_int(&a_stack);
+print_vec_int(&b_stack);
+*/

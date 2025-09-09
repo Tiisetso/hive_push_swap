@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 10:38:48 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 15:00:40 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 16:41:40 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ unsigned int bit_count(unsigned int num);
 unsigned int get_max_bits(t_vec *v);
 
 void radix_sort(t_vec *a_stack, t_vec *b_stack);
+void sort_2(t_vec *a_stack);
+void sort_3(t_vec *a_stack);
 
 #endif
