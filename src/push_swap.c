@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/08 22:40:39 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:31:20 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,6 @@ void print_vec_int(t_vec *v) //TODO: remove
 		i++;
 	}
 	ft_putendl_fd("", 1);
-}
-
-int check_overflow(const char *s)
-{
-	long lnum;
-
-	lnum = ft_atol(s);
-	if(!(lnum >= INT_MIN && lnum <= INT_MAX))
-		return (0);
-	return (1);
 }
 
 int is_number(const char *s)
@@ -57,6 +47,7 @@ int is_number(const char *s)
 	return (1);
 }
 
+
 int check_nums(char **av, int i, t_vec *v, t_vec *a_stack)
 {
 	int x;
@@ -65,9 +56,8 @@ int check_nums(char **av, int i, t_vec *v, t_vec *a_stack)
 	{
 		if (!is_number(av[i]))
 			return (0);
-		if(!check_overflow(av[i]))
+		if (!ft_atoi_check(av[i], &x))
 			return (0);
-		x = ft_atoi(av[i]);
 		if(ft_vec_push(v, &x) == -1)
 			return (0);
 		if(ft_vec_push(a_stack, &x) == -1)
@@ -276,9 +266,9 @@ int main(int ac, char **av)
 	input_check(ac, av, &v, &a_stack);
 	sort_vec(&v);
 	list_check(&v, &a_stack);
-	num_rank(&v, &a_stack);// TODO: Reenable
+	// num_rank(&v, &a_stack);// TODO: Reenable
 
-	// print_vec_int(&v); //TODO: remove
+	print_vec_int(&v); //TODO: remove
 	// ft_putendl_fd("", 2);
 	print_vec_int(&a_stack); //TODO: remove
 	
@@ -320,7 +310,6 @@ Tasklist
 
 TODO: Radix with pb, ra, pa.
 TODO: algs for 2, 3, 5. 4?
-TODO: really big numbers.
 
 TODO: return value/error checking swap functions?
 
