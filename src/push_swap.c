@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 16:41:13 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 20:31:54 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,28 +138,7 @@ int duplicate_check(t_vec *v)
 	return (duplicates);
 }
 
-int unsorted_check(t_vec *v)
-{
-	size_t i;
-	int *a;
-	int *b;
-	int unsorted;
 
-	unsorted = 0;
-	i = 0;
-	while(i < v->len -1)
-	{
-		a = ft_vec_get(v, i);
-		b = ft_vec_get(v, i + 1);
-		if (*a > *b)
-		{
-			unsorted = 1;
-			break;
-		}
-		i++;
-	}
-	return (unsorted);
-}
 
 void input_check(int ac, char **av, t_vec *v, t_vec *a_stack)
 {
@@ -221,17 +200,54 @@ void num_rank(t_vec *v, t_vec *a_stack)
 	while (i < a_stack->len)
 	{
 		rank = 0;
-		a_num = ft_vec_get(a_stack, i);
+		a_num = (int *)ft_vec_get(a_stack, i);
 		while (rank < v->len)
 		{
-			v_num = ft_vec_get(v, rank);
+			v_num = (int *)ft_vec_get(v, rank);
 			if (*a_num == *v_num)
-				*a_num = rank;
+			{
+				*a_num = (int)rank;
+				break;
+			}
 			rank++;
 		}
 		i++;
 	}
 }
+
+// void num_rank(t_vec *v, t_vec *a_stack)
+// {
+// 	size_t i;
+// 	size_t rank;
+// 	int *v_num;
+// 	int *a_num;
+// 	int needle;
+
+// 	i = 0;
+// 	while (i < a_stack->len)
+// 	{
+// 		rank = 0;
+// 		a_num = (int *)ft_vec_get(a_stack, i);
+// 		if (!a_num)
+// 			return;
+// 		needle = *a_num;
+// 		while (rank < v->len)
+// 		{
+// 			v_num = (int *)ft_vec_get(v, rank);
+// 			if (!v_num)
+// 				break;
+// 			if (*v_num == needle)
+// 			{
+// 				*a_num = (int)rank;
+// 				break;
+// 			}
+// 			if (*v_num > needle)
+// 				break;
+// 			rank++;
+// 		}
+// 		i++;
+// 	}
+// }
 
 
 int main(int ac, char **av)
@@ -249,20 +265,32 @@ int main(int ac, char **av)
 	input_check(ac, av, &v, &a_stack);
 	sort_vec(&v);
 	list_check(&v, &a_stack);
+
+	// print_vec_int(&a_stack);
+
 	num_rank(&v, &a_stack);
-	ft_vec_free(&v);
-
-
+	
+	// print_vec_int(&v);
+	// print_vec_int(&a_stack);
+	
 	t_vec b_stack;
 	ft_vec_new(&b_stack, 0, sizeof(int));
-
+	
 	if(a_stack.len == 2)
 		sort_2(&a_stack);
 	else if(a_stack.len == 3)
 		sort_3(&a_stack);
+	else if(a_stack.len == 4)
+		sort_4(&a_stack, &b_stack);
+	else if(a_stack.len == 5)
+		sort_5(&a_stack, &b_stack);
 	else
 		radix_sort(&a_stack, &b_stack);
-
+	
+	
+	// print_vec_int(&a_stack);
+	
+	ft_vec_free(&v);
 	ft_vec_free(&b_stack);
 	ft_vec_free(&a_stack);
 	return (0);
@@ -275,17 +303,20 @@ TODO: 3 nums
 TODO: 5 nums
 TODO: 4 nums
 
+TODO: check that args aren't greater than int_max
+
 TODO:ss, rr, rrr
 
 TODO: return value/error checking swap functions?
 */
 
+// ./push_swap "3 2  -9   1 -6 45"
+// ./push_swap -20 -65 -3 -14 -90 -50 -8 -9 -5 -2 -11 -64 -98 -97 -6 -94 -1
+
 /* 
 Performance criteria
-3num	3op
 5num	12op
 */
-
 
 /* 	
 //example ops check
