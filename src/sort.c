@@ -6,43 +6,42 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 22:34:46 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 21:09:47 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 23:05:22 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	radix_sort(t_vec *a_stack, t_vec *b_stack)
+static void	push_min(t_vec *a_stack, t_vec *b_stack, int i)
 {
-	unsigned int	max_bits;
-	unsigned int	i;
-	int				*num;
-	size_t			j;
-	size_t			a_length;
+	size_t	min_index;
+	size_t	half_index;
 
-	i = 0;
-	a_length = a_stack->len;
-	max_bits = get_max_bits(a_stack);
-	while (i < max_bits)
+	get_min_index(a_stack, &min_index, i);
+	if ((min_index != 0) && (min_index <= (a_stack->len / 2)))
 	{
-		j = 0;
-		while (j < a_length)
+		while (min_index > 0)
 		{
-			num = ft_vec_get(a_stack, 0);
-			if (((*num >> i) & 1u) == 0)
-				ft_pb(b_stack, a_stack);
-			else
-				ft_ra(a_stack);
-			j++;
+			ft_ra(a_stack);
+			min_index--;
 		}
-		while (b_stack->len)
-			ft_pa(a_stack, b_stack);
-		i++;
 	}
+	else if (min_index != 0)
+	{
+		half_index = a_stack->len - min_index;
+		while (half_index > 0)
+		{
+			ft_rra(a_stack);
+			half_index--;
+		}
+	}
+	ft_pb(b_stack, a_stack);
 }
 
 void	sort_2(t_vec *a_stack)
 {
+	if (!unsorted_check(a_stack))
+		return ;
 	ft_ra(a_stack);
 }
 
@@ -69,50 +68,15 @@ void	sort_3(t_vec *a_stack)
 
 void	sort_4(t_vec *a_stack, t_vec *b_stack)
 {
-	size_t	min_index;
-	size_t	half_index;
-
-	get_min_index(a_stack, &min_index, 0);
-	if ((min_index != 0) && (min_index <= (a_stack->len / 2)))
-	{
-		while (min_index > 0)
-		{
-			ft_ra(a_stack);
-			min_index--;
-		}
-	}
-	else if (min_index != 0)
-	{
-		half_index = a_stack->len - min_index;
-		while (half_index > 0)
-		{
-			ft_rra(a_stack);
-			half_index--;
-		}
-	}
-	ft_pb(b_stack, a_stack);
+	push_min(a_stack, b_stack, 0);
 	sort_3(a_stack);
 	ft_pa(a_stack, b_stack);
 }
 
 void	sort_5(t_vec *a_stack, t_vec *b_stack)
 {
-	size_t	min_index;
-
-	get_min_index(a_stack, &min_index, 0);
-	while (min_index > 0)
-	{
-		ft_ra(a_stack);
-		min_index--;
-	}
-	ft_pb(b_stack, a_stack);
-	get_min_index(a_stack, &min_index, 1);
-	while (min_index > 0)
-	{
-		ft_ra(a_stack);
-		min_index--;
-	}
-	ft_pb(b_stack, a_stack);
+	push_min(a_stack, b_stack, 0);
+	push_min(a_stack, b_stack, 1);
 	sort_3(a_stack);
 	ft_pa(a_stack, b_stack);
 	ft_pa(a_stack, b_stack);

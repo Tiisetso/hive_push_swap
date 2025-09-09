@@ -6,7 +6,7 @@
 #    By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/08 10:38:01 by timurray          #+#    #+#              #
-#    Updated: 2025/09/09 21:17:39 by timurray         ###   ########.fr        #
+#    Updated: 2025/09/09 23:05:41 by timurray         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = push_swap
 SOURCES = \
 src/push_swap.c src/error.c src/bit.c \
 src/a_op.c  src/b_op.c \
-src/sort.c src/utils.c src/parse.c \
+src/sort.c src/radix.c src/utils.c src/parse.c \
 
 OBJECTS = $(SOURCES:.c=.o)
 
