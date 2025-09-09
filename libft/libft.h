@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 16:35:15 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 09:33:39 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:53:16 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ char				*ft_substr(char const *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 void				ft_free_split(char **arr);
-int	ft_atoi_check(const char *nptr, int *num);
+int					ft_atoi_check(const char *nptr, int *num);
 
 int					ft_vec_new(t_vec *dst, size_t init_len, size_t elem_size);
 int					ft_vec_resize(t_vec *src, size_t target_len);

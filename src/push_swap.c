@@ -6,7 +6,7 @@
 /*   By: timurray <timurray@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 15:56:04 by timurray          #+#    #+#             */
-/*   Updated: 2025/09/09 13:31:20 by timurray         ###   ########.fr       */
+/*   Updated: 2025/09/09 13:58:34 by timurray         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -268,9 +268,9 @@ int main(int ac, char **av)
 	list_check(&v, &a_stack);
 	// num_rank(&v, &a_stack);// TODO: Reenable
 
-	print_vec_int(&v); //TODO: remove
-	// ft_putendl_fd("", 2);
-	print_vec_int(&a_stack); //TODO: remove
+	// print_vec_int(&v); //TODO: remove
+	// // ft_putendl_fd("", 2);
+	// print_vec_int(&a_stack); //TODO: remove
 	
 
 	// ft_printf("max rank(i.e. value): %d\n", a_stack.len - 1);
@@ -280,23 +280,37 @@ int main(int ac, char **av)
 	ft_vec_new(&b_stack, 0, sizeof(int));
 
 	print_vec_int(&a_stack);
-	// print_vec_int(&b_stack);
+	print_vec_int(&b_stack);
 	
-	// ft_pb(&b_stack, &a_stack);
-	// ft_pb(&b_stack, &a_stack);
-	// ft_pb(&b_stack, &a_stack);
+	ft_sa(&a_stack);
+	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
 	
-	ft_ra(&a_stack);
-	ft_ra(&a_stack);
-	
-	// ft_rb(&b_stack);
+	ft_pb(&b_stack, &a_stack);
+	ft_pb(&b_stack, &a_stack);
+	ft_pb(&b_stack, &a_stack);
+	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
 
+	ft_ra(&a_stack);
+	ft_rb(&b_stack);
 	print_vec_int(&a_stack);
-	// print_vec_int(&b_stack);
+	print_vec_int(&b_stack);
+
+	ft_rra(&a_stack);
+	ft_rrb(&b_stack);
+	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
 	
-	ft_rra(&a_stack);
-	ft_rra(&a_stack);
+	ft_sa(&a_stack);
 	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
+	
+	ft_pa(&a_stack, &b_stack);
+	ft_pa(&a_stack, &b_stack);
+	ft_pa(&a_stack, &b_stack);
+	print_vec_int(&a_stack);
+	print_vec_int(&b_stack);
 
 	ft_vec_free(&b_stack);
 	ft_vec_free(&v);
@@ -307,16 +321,15 @@ int main(int ac, char **av)
 
 /* 
 Tasklist
-
 TODO: Radix with pb, ra, pa.
 TODO: algs for 2, 3, 5. 4?
 
-TODO: return value/error checking swap functions?
 
 TODO: push_swap functions
 TODO:ss, rrr
 TODO: sa
 
+TODO: return value/error checking swap functions?
 
 
 */
